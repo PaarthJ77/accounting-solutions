@@ -1,0 +1,215 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom styles within @layer components */
+@layer components {
+  .text-darkGreenDarker {
+    color: theme('colors.darkGreenDarker');
+  }
+  .bg-darkGreenEnd {
+    background-color: theme('colors.darkGreenEnd');
+  }
+}
+
+/* Custom styles */
+body {
+  @apply font-raleway font-semibold text-darkGreenDarker m-0 p-0;
+  /* Set OffWhite as the main background */
+  background-color: theme('colors.OffWhite');
+  /* Remove the gradient background */
+  /* background: linear-gradient(to bottom right, #93a847, #7a8c38, #6c7d31); */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+  /* background-size: cover; */
+  min-height: 100vh;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  @apply text-center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem; /* Adjust to the height of the fixed header */
+}
+
+header, main, footer {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+main {
+  @apply flex flex-col items-center;
+  flex-grow: 1;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+footer {
+  @apply text-center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.container {
+  @apply mx-auto h-full flex justify-between items-center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  box-shadow: none;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.fade-in-logo {
+  opacity: 1;
+}
+
+/* Typing animation styles */
+.typing-animation-container {
+  margin-right: auto;
+}
+
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 1.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  border-right: none;
+}
+
+.typing-text {
+  font-size: 1.5rem;
+  color: #E8E0D1; /* darkerOffWhite */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: transparent; }
+}
+
+/* Logo spin animation for non-reduced-motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade-in animation for body cards */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.fade-in-delay-1 {
+  animation-delay: 2s;
+}
+
+.fade-in-delay-2 {
+  animation-delay: 3s;
+}
+
+.fade-in-delay-3 {
+  animation-delay: 4s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Custom classes using Tailwind */
+header nav ul {
+  @apply list-none p-0 m-0;
+}
+
+header nav ul li {
+  @apply inline mr-5;
+}
+
+ul {
+  @apply list-none p-0 m-0;
+}
+
+ul li {
+  @apply mb-2.5;
+}
+
+/* Grainy texture */
+.grainy-texture {
+  position: relative;
+  background-color: rgba(232, 224, 209, 0.8); /* darkerOffWhite with opacity */
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.grainy-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-radial-gradient(
+    circle at 0 0,
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.04) 1px,
+    rgba(0, 0, 0, 0) 1px,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+/* Example of custom styles, leveraging Tailwind's @apply directive */
+.my-custom-style {
+  @apply bg-[#ac1515a7] p-5;
+}
+
+.another-custom-style {
+  @apply text-2xl text-[#333];
+}
