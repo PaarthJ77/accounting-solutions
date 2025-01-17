@@ -1,3 +1,82 @@
+# Accounting Solutions
+
+### Streamline your business operations with expert accounting and payroll services.
+
+---
+
+## Table of Contents
+1. [About the App](#about-the-app)
+2. [Features](#features)
+3. [Tech Stack](#tech-stack)
+4. [Getting Started](#getting-started)
+5. [Installation](#installation)
+6. [Usage](#usage)
+7. [Deployment](#deployment)
+8. [Environment Variables](#environment-variables)
+9. [Contributing](#contributing)
+10. [License](#license)
+
+---
+
+## About the App
+
+**Accounting Solutions** is a React-based web application designed to provide small businesses and enterprises with financial clarity. With features ranging from payroll management to tax preparation, it ensures seamless compliance and financial health tracking.
+
+---
+
+## Features
+
+- **Accounting Services**
+  - Financial reporting
+  - Bank reconciliation
+  - Tax preparation and filing
+- **Payroll Services**
+  - Salary and wages processing
+  - Employee self-service portal
+  - Payroll tax filing
+- **Dynamic Components**
+  - Expandable dropdown sections for content like "Why Choose Us" and "Catch-up Accounting."
+  - Responsive design for mobile and desktop.
+- **Clients Section**
+  - Displays a list of prominent clients.
+- **Contact Us Popup**
+  - Collects user queries via a modal form.
+- **Deployment-Ready**
+  - Hosted on Heroku and integrated with a GoDaddy domain.
+
+---
+
+## Tech Stack
+
+- **Frontend:**
+  - React
+  - TailwindCSS
+  - Framer Motion (animations)
+- **Backend:**
+  - Node.js (Heroku server for deployment)
+- **Build Tools:**
+  - React-Scripts
+  - PostCSS
+- **Hosting:**
+  - Heroku
+  - Custom domain integration via GoDaddy
+
+---
+
+## Getting Started
+
+Follow these steps to set up the project locally:
+
+---
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/PaarthJ77/accounting-solutions.git
+   cd accounting-solutions
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
