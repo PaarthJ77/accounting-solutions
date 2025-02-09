@@ -1,14 +1,12 @@
-// src/components/Header.jsx
 import React from 'react';
 import { Menu } from '@headlessui/react';
 import { Bars3Icon } from '@heroicons/react/24/solid';
-import logo from '../assets/Accounting-Solutions-logo.png';
-import { motion } from 'framer-motion';
 import { scroller } from 'react-scroll';
+import { motion } from 'framer-motion';
+import logo from '../assets/Accounting-Solutions-logo.png';
 
 const headerText = "Accounting Solutions";
 
-// Animation variants
 const letterVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.4 } },
@@ -16,51 +14,73 @@ const letterVariants = {
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.05 } },
 };
 
 function Header({ onContactClick }) {
+  // Smooth scrolling
   const handleScrollTo = (target) => {
     scroller.scrollTo(target, {
       smooth: true,
       duration: 500,
-      offset: -70, // Adjust for header height
+      offset: -70,
     });
   };
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 bg-OffWhite text-darkGreenDarker px-4 py-2 flex justify-between items-center z-50 shadow-md"
-      aria-label="Main Navigation"
-    >
-      <div className="relative flex items-center space-x-2">
-        {/* Dropdown Menu */}
+    <>
+      {/* ================== MOBILE HEADER (VISIBLE UP TO md) ================== */}
+      <header
+        className="
+          md:hidden
+          w-full
+          fixed top-0 left-0 right-0 z-50
+          bg-OffWhite text-darkGreenDarker
+          shadow-md
+          flex items-center
+          px-4 py-2
+          sm:px-6 sm:py-3
+        "
+      >
+        {/* 1) Dropdown */}
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button
-              type="button"
-              className="inline-flex justify-center items-center rounded-md border border-transparent shadow-sm px-3 py-2
-                         bg-transparent text-lg font-bold text-darkGreenDarker
-                         hover:bg-darkGreenDarker hover:text-OffWhite focus:outline-none"
-              aria-label="Open Navigation Menu"
+              className="
+                inline-flex items-center
+                p-2
+                text-sm sm:text-base
+                font-bold
+                text-darkGreenDarker
+                hover:bg-darkGreenDarker hover:text-OffWhite
+                focus:outline-none
+                rounded-md
+              "
             >
-              <Bars3Icon className="h-8 w-8" aria-hidden="true" />
+              <Bars3Icon className="h-5 w-5 sm:h-6 sm:w-6" />
             </Menu.Button>
           </div>
 
           <Menu.Items
-            className="z-50 origin-top-left absolute left-0 mt-2 w-72 rounded-md shadow-lg bg-OffWhite
-                       ring-1 ring-gray-300 focus:outline-none"
+            className="
+              z-50 absolute left-0 mt-2
+              w-48 sm:w-56
+              rounded-lg shadow-lg bg-OffWhite
+              ring-1 ring-gray-300
+              focus:outline-none
+            "
           >
-            <div className="py-1">
+            <div className="py-2 space-y-2">
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    type="button"
                     onClick={() => handleScrollTo('services')}
-                    className={`${
-                      active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'
-                    } block px-6 py-4 text-2xl font-extrabold w-full text-left`}
+                    className={`
+                      block w-full px-4 py-2
+                      text-sm sm:text-base
+                      font-extrabold text-left
+                      ${active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'}
+                    `}
                   >
                     Services
                   </button>
@@ -69,11 +89,13 @@ function Header({ onContactClick }) {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    type="button"
                     onClick={() => handleScrollTo('why-choose-us')}
-                    className={`${
-                      active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'
-                    } block px-6 py-4 text-2xl font-extrabold w-full text-left`}
+                    className={`
+                      block w-full px-4 py-2
+                      text-sm sm:text-base
+                      font-extrabold text-left
+                      ${active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'}
+                    `}
                   >
                     Why Choose Us
                   </button>
@@ -82,11 +104,13 @@ function Header({ onContactClick }) {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    type="button"
                     onClick={() => handleScrollTo('our-clients')}
-                    className={`${
-                      active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'
-                    } block px-6 py-4 text-2xl font-extrabold w-full text-left`}
+                    className={`
+                      block w-full px-4 py-2
+                      text-sm sm:text-base
+                      font-extrabold text-left
+                      ${active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'}
+                    `}
                   >
                     Our Clients
                   </button>
@@ -95,11 +119,13 @@ function Header({ onContactClick }) {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    type="button"
                     onClick={() => handleScrollTo('contact')}
-                    className={`${
-                      active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'
-                    } block px-6 py-4 text-2xl font-extrabold w-full text-left`}
+                    className={`
+                      block w-full px-4 py-2
+                      text-sm sm:text-base
+                      font-extrabold text-left
+                      ${active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'}
+                    `}
                   >
                     Contact
                   </button>
@@ -109,44 +135,226 @@ function Header({ onContactClick }) {
           </Menu.Items>
         </Menu>
 
-        {/* Contact Us Button */}
+        {/* 2) Contact Button */}
         <button
-          type="button"
           onClick={onContactClick}
-          className="bg-transparent hover:bg-darkGreenDarker text-darkGreenDarker hover:text-OffWhite font-extrabold py-3 px-6 rounded
-                     border-2 border-darkGreenDarker focus:outline-none uppercase text-lg transition-colors duration-200"
-          aria-label="Contact Us"
+          className="
+            ml-2
+            bg-transparent hover:bg-darkGreenDarker
+            text-darkGreenDarker hover:text-OffWhite
+            font-extrabold
+            py-1 px-3
+            text-xs sm:text-sm
+            rounded
+            border-2 border-darkGreenDarker
+            focus:outline-none
+            uppercase
+            transition-colors duration-200
+          "
         >
-          CONTACT US
+          Contact Us
         </button>
-      </div>
 
-      {/* Logo and Animated Title */}
-      <div className="flex items-center space-x-4">
-        <h1 className="text-2xl md:text-3xl font-semibold overflow-hidden">
-          <motion.span
-            className="flex"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {headerText.split("").map((char, index) => (
-              <motion.span key={index} variants={letterVariants}>
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </motion.span>
-        </h1>
+        {/* 3) Flex Spacer */}
+        <div className="flex-1" />
+
+        {/* 4) Title (Animated) */}
+        <motion.h1
+          className="
+            text-xs sm:text-sm
+            font-extrabold
+            whitespace-nowrap
+            mr-2
+          "
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {headerText.split("").map((char, i) => (
+            <motion.span key={i} variants={letterVariants}>
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.h1>
+
+        {/* 5) Logo */}
         <motion.img
           src={logo}
           alt="Accounting Solutions Logo"
-          className="h-24 w-24 object-contain"
+          className="
+            h-6 w-6
+            sm:h-8 sm:w-8
+            object-contain
+          "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}
         />
-      </div>
-    </header>
+      </header>
+
+      {/* ================== DESKTOP HEADER (VISIBLE AT md+) ================== */}
+      <header
+        className="
+          hidden md:flex
+          fixed top-0 left-0 right-0 z-50
+          bg-OffWhite text-darkGreenDarker
+          shadow-md
+          items-center
+          px-6 py-3
+          lg:px-8 lg:py-4
+          xl:px-10 xl:py-5
+        "
+      >
+        {/* 1) Dropdown (left) */}
+        <Menu as="div" className="relative inline-block text-left">
+          <div>
+            <Menu.Button
+              className="
+                inline-flex items-center
+                p-3
+                text-lg lg:text-xl
+                font-bold
+                text-darkGreenDarker
+                hover:bg-darkGreenDarker hover:text-OffWhite
+                focus:outline-none
+                rounded-md
+              "
+            >
+              <Bars3Icon className="h-7 w-7 lg:h-8 lg:w-8 xl:h-10 xl:w-10" />
+            </Menu.Button>
+          </div>
+
+          <Menu.Items
+            className="
+              z-50 absolute left-0 mt-3
+              w-56 lg:w-64 xl:w-72
+              rounded-lg shadow-lg bg-OffWhite
+              ring-1 ring-gray-300
+              focus:outline-none
+            "
+          >
+            <div className="py-3 space-y-3">
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={() => handleScrollTo('services')}
+                    className={`
+                      block w-full px-4 py-2
+                      text-xl
+                      font-extrabold text-left
+                      ${active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'}
+                    `}
+                  >
+                    Services
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={() => handleScrollTo('why-choose-us')}
+                    className={`
+                      block w-full px-4 py-2
+                      text-xl
+                      font-extrabold text-left
+                      ${active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'}
+                    `}
+                  >
+                    Why Choose Us
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={() => handleScrollTo('our-clients')}
+                    className={`
+                      block w-full px-4 py-2
+                      text-xl
+                      font-extrabold text-left
+                      ${active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'}
+                    `}
+                  >
+                    Our Clients
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={() => handleScrollTo('contact')}
+                    className={`
+                      block w-full px-4 py-2
+                      text-xl
+                      font-extrabold text-left
+                      ${active ? 'bg-darkGreenDarker text-OffWhite' : 'text-darkGreenDarker'}
+                    `}
+                  >
+                    Contact
+                  </button>
+                )}
+              </Menu.Item>
+            </div>
+          </Menu.Items>
+        </Menu>
+
+        {/* 2) Contact Button */}
+        <button
+          onClick={onContactClick}
+          className="
+            ml-3
+            bg-transparent hover:bg-darkGreenDarker
+            text-darkGreenDarker hover:text-OffWhite
+            font-extrabold
+            py-2 px-5
+            text-lg
+            rounded
+            border-2 border-darkGreenDarker
+            focus:outline-none
+            uppercase
+            transition-colors duration-200
+          "
+        >
+          Contact Us
+        </button>
+
+        {/* 3) Flex Spacer */}
+        <div className="flex-1" />
+
+        {/* 4) Title (Animated) */}
+        <motion.h1
+          className="
+            text-xl
+            font-extrabold
+            whitespace-nowrap
+            mr-4
+          "
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {headerText.split("").map((char, i) => (
+            <motion.span key={i} variants={letterVariants}>
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.h1>
+
+        {/* 5) Logo */}
+        <motion.img
+          src={logo}
+          alt="Accounting Solutions Logo"
+          className="
+            h-10 w-10
+            lg:h-12 lg:w-12
+            object-contain
+          "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        />
+      </header>
+    </>
   );
 }
 

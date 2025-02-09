@@ -13,8 +13,8 @@ const ContactPopup = lazy(() => import('./components/ContactPopup'));
 import Services from './components/Services';
 import WhyChooseUs from './components/WhyChooseUs';
 import OurClients from './components/OurClients';
-import CatchUp from './components/CatchUp'; // Import CatchUp
-import Importance from './components/Importance'; // Import Importance
+import CatchUp from './components/CatchUp';   // Catch-up section
+import Importance from './components/Importance'; // Importance section
 import ContactSection from './components/ContactSection';
 
 // Error boundary component
@@ -26,12 +26,16 @@ class ErrorBoundary extends React.Component {
 
   componentDidCatch(error, info) {
     this.setState({ hasError: true });
-    console.error("ErrorBoundary caught an error", error, info);
+    console.error('ErrorBoundary caught an error', error, info);
   }
 
   render() {
     if (this.state.hasError) {
-      return <div className="text-center text-red-500 mt-20">Something went wrong.</div>;
+      return (
+        <div className="text-center text-red-500 mt-20">
+          Something went wrong.
+        </div>
+      );
     }
     return this.props.children;
   }
@@ -61,15 +65,20 @@ function App() {
       {loading ? (
         <Preloader />
       ) : (
-        <div className="App pt-20 relative">
+        // Removed large top padding, changed to a smaller one or none:
+        <div className="App pt-0 sm:pt-0 md:pt-0 relative">
           <ErrorBoundary>
-            <Suspense fallback={<div className="text-center text-gray-500 mt-20">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="text-center text-gray-500 mt-20">Loading...</div>
+              }
+            >
               <Header onContactClick={handleButtonClick} />
               <main className="flex-grow">
                 <Services />
                 <WhyChooseUs />
-                <CatchUp /> {/* Add the CatchUp section here */}
-                <Importance /> {/* Add the Importance section here */}
+                <CatchUp />
+                <Importance />
                 <OurClients />
                 <ContactSection />
               </main>
