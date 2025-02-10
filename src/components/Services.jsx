@@ -7,6 +7,10 @@ const accountingServices = [
   { keyword: 'General Ledger Account Reconciliation', description: 'Transaction entry/classification.' },
   { keyword: 'Income and Expense Tracking', description: 'Track and categorize transactions in real time.' },
   { keyword: 'Invoicing and Billing', description: 'Create, send, and manage professional invoices to get paid faster.' },
+  { keyword: 'Financial Review', description: 'Monthly or Quarterly Consulting and Review of Financial Statements.' },
+  { keyword: 'Tax Preparation', description: 'Simplify tax season with organized records and automated tax calculations.' },
+  { keyword: 'Sales Tax Returns', description: 'Making Monthly Sales Tax Pre-payments and Filing Quarterly returns.' },
+  { keyword: 'Property Tax Returns', description: 'Filing and payments of Unsecured Property Tax annually.' },
 ];
 
 const payrollServices = [
@@ -14,6 +18,10 @@ const payrollServices = [
   { keyword: 'Direct Deposit', description: "Ensure timely payments directly to employees' bank accounts." },
   { keyword: 'Tax Withholding', description: 'Calculate and deduct payroll taxes, including federal, state, and local taxes.' },
   { keyword: 'Employee Self-Service Portal', description: 'Access to an online portal where employees can view/download pay stubs, W-2s, and other documents anytime.' },
+  { keyword: 'Additional Deductions', description: 'Calculating, processing and paying CalSavers Deductions.' },
+  { keyword: 'Pay Stub Generation', description: 'Provide employees with detailed, downloadable paystubs.' },
+  { keyword: 'Payroll Tax Efiling', description: 'Generating and efiling Payroll Taxes per Payroll.' },
+  { keyword: 'Payroll Tax Returns', description: 'Manage and file Federal and State Payroll Tax Returns quarterly/annually.' },
 ];
 
 function Services() {
@@ -26,7 +34,7 @@ function Services() {
       <SectionTitle title="Accounting and Payroll Services" align="center" />
 
       <p className="mt-6 text-lg sm:text-xl md:text-2xl font-black text-center max-w-4xl mx-auto">
-        At Accounting Solutions, we provide comprehensive accounting and payroll solutions designed to streamline your business operations.
+        At Accounting Solutions, we provide comprehensive accounting and payroll solutions designed to streamline your business operations and ensure compliance with financial regulations. Our platform offers a user-friendly experience with advanced tools tailored to meet the needs of small businesses, entrepreneurs, and growing enterprises.
       </p>
 
       <div className="mt-12 flex flex-col md:flex-row md:flex-wrap justify-center items-start gap-12">
