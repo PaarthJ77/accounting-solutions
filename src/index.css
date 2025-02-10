@@ -25,43 +25,14 @@ html, body, #root {
   padding: 0;
 }
 
-/* .App now has no forced top padding (overridden in App.jsx) */
 .App {
   @apply text-center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Removed: @apply pt-16 sm:pt-20 md:pt-24; */
-}
+ /* padding-top: 4rem; */
+ }
 
-/* Remove or comment out global 'header' rules so the Header component can control its own spacing:
-header, main, footer {
-  width: 100%;
-  @apply px-4 sm:px-6 md:px-8;
-}
-
-header {
-  @apply py-3 sm:py-4 md:py-5;
-}
-*/
-
-/* main, footer, container, etc. can stay if you want them,
-   but if they're interfering with your layout, comment them out too. */
-
-/*
-main {
-  @apply flex flex-col items-center;
-  flex-grow: 1;
-  @apply py-2 sm:py-3 md:py-4;
-}
-footer {
-  @apply text-center;
-  @apply py-3 sm:py-4 md:py-5;
-}
-.container {
-  @apply mx-auto h-full flex justify-between items-center;
-}
-*/
 
 .App-logo {
   height: 40vmin;

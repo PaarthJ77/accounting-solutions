@@ -22,7 +22,7 @@ function Services() {
   }, []);
 
   return (
-    <div id="services" className="mt-16">
+    <div id="services" className="mt-20 pt-16 sm:pt-24 md:pt-28">
       <SectionTitle title="Accounting and Payroll Services" align="center" />
 
       <p className="mt-6 text-lg sm:text-xl md:text-2xl font-black text-center max-w-4xl mx-auto">
