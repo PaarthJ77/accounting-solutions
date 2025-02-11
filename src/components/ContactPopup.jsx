@@ -1,13 +1,11 @@
-// src/components/ContactPopup.jsx
-
 import React, { useState, useEffect, useRef } from 'react';
-import { XMarkIcon } from '@heroicons/react/24/solid'; // Importing the "X" icon
-import { motion, AnimatePresence } from 'framer-motion'; // For animations
-import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion'; // Custom hook for reduced motion
+import { XMarkIcon } from '@heroicons/react/24/solid';
+import { motion, AnimatePresence } from 'framer-motion';
+import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion';
 
 const ContactPopup = ({ show, onClose }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
-  const [preferredContact, setPreferredContact] = useState(null); // 'phone' or 'email'
+  const [preferredContact, setPreferredContact] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -19,10 +17,8 @@ const ContactPopup = ({ show, onClose }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  // Ref for the popup container to manage focus
   const popupRef = useRef(null);
 
-  // Close popup on Escape key press
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape' && show) {
@@ -33,21 +29,18 @@ const ContactPopup = ({ show, onClose }) => {
     return () => window.removeEventListener('keydown', handleEscape);
   }, [show, onClose]);
 
-  // Trap focus within the popup when it's open
   useEffect(() => {
     if (show && popupRef.current) {
       popupRef.current.focus();
     }
   }, [show]);
 
-  // Prevent background scrolling when popup is open
   useEffect(() => {
     if (show) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -55,24 +48,21 @@ const ContactPopup = ({ show, onClose }) => {
 
   if (!show) return null;
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handle preferred contact method selection
   const handlePreferredContact = (method) => {
     setPreferredContact(method);
-    if (method === 'phone') {
-      setFormData({ ...formData, email: '' });
-    } else if (method === 'email') {
-      setFormData({ ...formData, phone: '' });
-    }
+    setFormData({
+      ...formData,
+      email: method === 'phone' ? '' : formData.email,
+      phone: method === 'email' ? '' : formData.phone,
+    });
     setError('');
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!preferredContact) {
@@ -127,7 +117,7 @@ const ContactPopup = ({ show, onClose }) => {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4"
           onClick={onClose}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -136,7 +126,7 @@ const ContactPopup = ({ show, onClose }) => {
           aria-modal="true"
         >
           <motion.div
-            className="relative bg-OffWhite text-darkGreenDarker rounded-lg p-8 w-11/12 md:w-1/2 lg:w-2/5 shadow-2xl focus:outline-none"
+            className="relative bg-OffWhite text-darkGreenDarker rounded-lg p-6 sm:p-8 w-full max-w-[95%] sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl shadow-2xl focus:outline-none max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
             ref={popupRef}
             tabIndex="-1"
@@ -150,18 +140,14 @@ const ContactPopup = ({ show, onClose }) => {
               className="absolute top-4 right-4 text-darkGreenDarker hover:text-darkGreenEnd focus:outline-none"
               aria-label="Close Contact Form"
             >
-              <XMarkIcon className="h-10 w-10" />
+              <XMarkIcon className="h-8 w-8 sm:h-10 sm:w-10" />
             </button>
-
-            <h2 className="text-5xl font-extrabold mb-8 text-center">Contact Us</h2>
-
+            <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 text-center">Contact Us</h2>
             <form onSubmit={handleSubmit}>
-              <div className="mb-6">
-                <label className="block text-2xl font-extrabold mb-3" htmlFor="name">
-                  Name:
-                </label>
+              <div className="mb-4">
+                <label className="block text-lg sm:text-xl font-extrabold mb-2" htmlFor="name">Name:</label>
                 <input
-                  className="w-full px-4 py-3 text-2xl rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
+                  className="w-full px-3 py-2 text-lg rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
                   id="name"
                   name="name"
                   type="text"
@@ -171,13 +157,10 @@ const ContactPopup = ({ show, onClose }) => {
                   required
                 />
               </div>
-
-              <div className="mb-6">
-                <label className="block text-2xl font-extrabold mb-3" htmlFor="company">
-                  Company Name (Optional):
-                </label>
+              <div className="mb-4">
+                <label className="block text-lg sm:text-xl font-extrabold mb-2" htmlFor="company">Company Name (Optional):</label>
                 <input
-                  className="w-full px-4 py-3 text-2xl rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
+                  className="w-full px-3 py-2 text-lg rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
                   id="company"
                   name="company"
                   type="text"
@@ -186,14 +169,13 @@ const ContactPopup = ({ show, onClose }) => {
                   onChange={handleChange}
                 />
               </div>
-
-              <div className="mb-8">
-                <h3 className="text-3xl font-extrabold mb-6 text-center">Preferred Method of Contact:</h3>
-                <div className="flex justify-center space-x-6">
+              <div className="mb-6">
+                <h3 className="text-xl sm:text-2xl font-extrabold mb-4 text-center">Preferred Method of Contact:</h3>
+                <div className="flex justify-center space-x-4">
                   <button
                     type="button"
                     onClick={() => handlePreferredContact('phone')}
-                    className={`py-4 px-8 text-2xl rounded font-extrabold border-2 transition ${
+                    className={`py-2 px-6 text-lg rounded font-extrabold border-2 transition ${
                       preferredContact === 'phone'
                         ? 'bg-darkGreenDarker text-OffWhite'
                         : 'bg-OffWhite text-darkGreenDarker'
@@ -201,11 +183,11 @@ const ContactPopup = ({ show, onClose }) => {
                   >
                     Phone
                   </button>
-                  <span className="text-3xl font-extrabold">or</span>
+                  <span className="text-xl font-extrabold">or</span>
                   <button
                     type="button"
                     onClick={() => handlePreferredContact('email')}
-                    className={`py-4 px-8 text-2xl rounded font-extrabold border-2 transition ${
+                    className={`py-2 px-6 text-lg rounded font-extrabold border-2 transition ${
                       preferredContact === 'email'
                         ? 'bg-darkGreenDarker text-OffWhite'
                         : 'bg-OffWhite text-darkGreenDarker'
@@ -216,48 +198,28 @@ const ContactPopup = ({ show, onClose }) => {
                 </div>
               </div>
 
-              {preferredContact === 'phone' && (
-                <div className="mb-6">
-                  <label className="block text-2xl font-extrabold mb-3" htmlFor="phone">
-                    Phone Number:
+              {preferredContact && (
+                <div className="mb-4">
+                  <label className="block text-lg sm:text-xl font-extrabold mb-2" htmlFor={preferredContact}>
+                    {preferredContact === 'phone' ? 'Phone Number:' : 'Email:'}
                   </label>
                   <input
-                    className="w-full px-4 py-3 text-2xl rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="Your Phone Number"
-                    value={formData.phone}
+                    className="w-full px-3 py-2 text-lg rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
+                    id={preferredContact}
+                    name={preferredContact}
+                    type={preferredContact === 'phone' ? 'tel' : 'email'}
+                    placeholder={preferredContact === 'phone' ? 'Your Phone Number' : 'Your Email'}
+                    value={formData[preferredContact]}
                     onChange={handleChange}
                     required
                   />
                 </div>
               )}
 
-              {preferredContact === 'email' && (
-                <div className="mb-6">
-                  <label className="block text-2xl font-extrabold mb-3" htmlFor="email">
-                    Email:
-                  </label>
-                  <input
-                    className="w-full px-4 py-3 text-2xl rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              )}
-
-              <div className="mb-8">
-                <label className="block text-2xl font-extrabold mb-3" htmlFor="message">
-                  Message:
-                </label>
+              <div className="mb-6">
+                <label className="block text-lg sm:text-xl font-extrabold mb-2" htmlFor="message">Message:</label>
                 <textarea
-                  className="w-full px-4 py-3 text-2xl rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
+                  className="w-full px-3 py-2 text-lg rounded border border-darkGreenDarker bg-OffWhite focus:outline-none"
                   id="message"
                   name="message"
                   rows="4"
@@ -265,34 +227,12 @@ const ContactPopup = ({ show, onClose }) => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                ></textarea>
+                />
               </div>
 
-              <div className="flex justify-between items-center">
-                {preferredContact && (
-                  <button
-                    type="button"
-                    onClick={() => setPreferredContact(null)}
-                    className="py-4 px-8 text-2xl rounded font-extrabold border-2 bg-OffWhite text-darkGreenDarker hover:bg-darkGreenDarker hover:text-OffWhite transition"
-                  >
-                    Cancel
-                  </button>
-                )}
-                <button
-                  type="submit"
-                  className={`py-4 px-8 text-2xl rounded font-extrabold border-2 ${
-                    loading
-                      ? 'bg-darkGreenDarker text-OffWhite opacity-50'
-                      : 'bg-OffWhite text-darkGreenDarker hover:bg-darkGreenDarker hover:text-OffWhite'
-                  } transition`}
-                  disabled={loading}
-                >
-                  {loading ? 'Sending...' : 'Send'}
-                </button>
-              </div>
-
-              {success && <p className="text-green-500 text-center mt-6 text-2xl font-extrabold">Your message was sent successfully!</p>}
-              {error && <p className="text-red-500 text-center mt-6 text-2xl font-extrabold">{error}</p>}
+              <button type="submit" className="py-3 px-6 text-lg font-extrabold border-2 bg-OffWhite text-darkGreenDarker hover:bg-darkGreenDarker hover:text-OffWhite transition">
+                {loading ? 'Sending...' : 'Send'}
+              </button>
             </form>
           </motion.div>
         </motion.div>

@@ -18,7 +18,6 @@ const containerVariants = {
 };
 
 function Header({ onContactClick }) {
-  // Modified smooth scrolling function: if target is 'top', scroll to top via window.scrollTo
   const handleScrollTo = (target) => {
     if (target === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -35,11 +34,11 @@ function Header({ onContactClick }) {
     <>
       {/* ================== MOBILE HEADER (VISIBLE UP TO md) ================== */}
       <header className="md:hidden w-full fixed top-0 left-0 right-0 z-50 bg-OffWhite text-darkGreenDarker shadow-md flex items-center px-4 py-2 sm:px-6 sm:py-3">
-        {/* 1) Dropdown */}
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button
               className="inline-flex items-center p-2 text-sm sm:text-base font-bold text-darkGreenDarker hover:bg-darkGreenDarker hover:text-OffWhite focus:outline-none rounded-md"
+              onClick={(e) => e.stopPropagation()}
             >
               <Bars3Icon className="h-5 w-5 sm:h-6 sm:w-6" />
             </Menu.Button>
@@ -66,19 +65,13 @@ function Header({ onContactClick }) {
             </div>
           </Menu.Items>
         </Menu>
-
-        {/* 2) Contact Button */}
         <button
           onClick={onContactClick}
           className="ml-2 bg-transparent hover:bg-darkGreenDarker text-darkGreenDarker hover:text-OffWhite font-extrabold py-1 px-3 text-xs sm:text-sm rounded border-2 border-darkGreenDarker focus:outline-none uppercase transition-colors duration-200"
         >
           Contact Us
         </button>
-
-        {/* 3) Flex Spacer */}
         <div className="flex-1" />
-
-        {/* 4) Animated Title */}
         <motion.h1
           className="text-xs sm:text-sm font-extrabold whitespace-nowrap mr-2"
           variants={containerVariants}
@@ -91,8 +84,6 @@ function Header({ onContactClick }) {
             </motion.span>
           ))}
         </motion.h1>
-
-        {/* 5) Logo (click scrolls to top) */}
         <motion.img
           src={logo}
           alt="Accounting Solutions Logo"
@@ -106,11 +97,11 @@ function Header({ onContactClick }) {
 
       {/* ================== DESKTOP HEADER (VISIBLE AT md+) ================== */}
       <header className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-OffWhite text-darkGreenDarker shadow-md items-center px-6 py-3 lg:px-8 lg:py-4 xl:px-10 xl:py-5">
-        {/* 1) Dropdown (left) */}
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button
               className="inline-flex items-center p-3 text-lg lg:text-xl font-bold text-darkGreenDarker hover:bg-darkGreenDarker hover:text-OffWhite focus:outline-none rounded-md"
+              onClick={(e) => e.stopPropagation()}
             >
               <Bars3Icon className="h-7 w-7 lg:h-8 lg:w-8 xl:h-10 xl:w-10" />
             </Menu.Button>
@@ -137,19 +128,13 @@ function Header({ onContactClick }) {
             </div>
           </Menu.Items>
         </Menu>
-
-        {/* 2) Contact Button */}
         <button
           onClick={onContactClick}
           className="ml-3 bg-transparent hover:bg-darkGreenDarker text-darkGreenDarker hover:text-OffWhite font-extrabold py-2 px-5 text-lg rounded border-2 border-darkGreenDarker focus:outline-none uppercase transition-colors duration-200"
         >
           Contact Us
         </button>
-
-        {/* 3) Flex Spacer */}
         <div className="flex-1" />
-
-        {/* 4) Animated Title */}
         <motion.h1
           className="text-xl font-extrabold whitespace-nowrap mr-4"
           variants={containerVariants}
@@ -162,8 +147,6 @@ function Header({ onContactClick }) {
             </motion.span>
           ))}
         </motion.h1>
-
-        {/* 5) Logo (click scrolls to top) */}
         <motion.img
           src={logo}
           alt="Accounting Solutions Logo"
