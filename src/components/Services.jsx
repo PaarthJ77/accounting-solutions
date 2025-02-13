@@ -34,7 +34,7 @@ function Services() {
       <SectionTitle title="Accounting and Payroll Services" align="center" />
 
       <p className="mt-6 text-lg sm:text-xl md:text-2xl font-black text-center max-w-4xl mx-auto">
-        At Accounting Solutions, we provide comprehensive accounting and payroll solutions designed to streamline your business operations and ensure compliance with financial regulations. Our platform offers a user-friendly experience with advanced tools tailored to meet the needs of small businesses, entrepreneurs, and growing enterprises.
+        At Accounting Solutions, we provide comprehensive accounting and payroll solutions designed to streamline your business operations and ensure compliance with financial regulations.
       </p>
 
       <div className="mt-12 flex flex-col md:flex-row md:flex-wrap justify-center items-start gap-12">

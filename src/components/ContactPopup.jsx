@@ -77,7 +77,7 @@ const ContactPopup = ({ show, onClose }) => {
     const dataToSend = { ...formData, preferredContact };
 
     try {
-      const response = await fetch('http://localhost:5001/send-email', {
+      const response = await fetch('http://192.168.1.7:5001/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
