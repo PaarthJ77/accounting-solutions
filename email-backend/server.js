@@ -8,11 +8,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://www.accountingsolutionz.org'],
-  methods: ['POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
-}));
+app.use(cors());
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 app.use(express.json());
 
@@ -37,6 +40,7 @@ transporter.verify((error, success) => {
   }
 });
 
+// Handle OPTIONS requests (preflight)
 app.options('/send-email', (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -44,6 +48,7 @@ app.options('/send-email', (req, res) => {
   res.sendStatus(200);
 });
 
+// Email sending route
 app.post('/send-email', (req, res) => {
   const { name, company, email, phone, message, preferredContact } = req.body;
 
