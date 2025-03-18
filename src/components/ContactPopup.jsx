@@ -77,7 +77,8 @@ const ContactPopup = ({ show, onClose }) => {
     const dataToSend = { ...formData, preferredContact };
 
     try {
-      const response = await fetch('https://accountingsolutionz-email.herokuapp.com/send-email', {
+      // Updated fetch URL to use the proxy server
+      const response = await fetch('https://accountingsolutionz-proxy.herokuapp.com/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
