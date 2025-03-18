@@ -8,16 +8,30 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const allowedOrigins = ['http://localhost:3000', 'https://accountingsolutionz.org', 'https://accountingsolutionz-email-2e05a1482189.herokuapp.com/'];
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET, POST, OPTIONS',
+  allowedHeaders: 'Content-Type, Authorization',
+  credentials: true
+}));
 
 app.use(express.json());
+
+app.options('*', (req, res) => {
+  res.header("Access-Control-Allow-Origin", req.headers.origin || '*');
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  return res.sendStatus(204);
+});
 
 const transporter = nodemailer.createTransport({
   host: "smtp.mail.yahoo.com",
@@ -40,15 +54,6 @@ transporter.verify((error, success) => {
   }
 });
 
-// Handle OPTIONS requests (preflight)
-app.options('/send-email', (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(200);
-});
-
-// Email sending route
 app.post('/send-email', (req, res) => {
   const { name, company, email, phone, message, preferredContact } = req.body;
 
