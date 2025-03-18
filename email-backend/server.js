@@ -38,31 +38,6 @@ app.options('/send-email', (req, res) => {
   return res.sendStatus(204);
 });
 
-app.get('/send-email', (req, res) => {
-  res.status(200).send('This endpoint is for sending emails via POST requests.');
-});
-
-const transporter = nodemailer.createTransport({
-  host: "smtp.mail.yahoo.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  }
-});
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('Error configuring transporter:', error);
-  } else {
-    console.log('✅ Email service is ready');
-  }
-});
-
 app.post('/send-email', (req, res) => {
   const { name, company, email, phone, message, preferredContact } = req.body;
 
@@ -102,6 +77,27 @@ ${message}
       return res.status(200).json({ msg: 'Email sent successfully!' });
     }
   });
+});
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.mail.yahoo.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false,
+  }
+});
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.error('Error configuring transporter:', error);
+  } else {
+    console.log('✅ Email service is ready');
+  }
 });
 
 app.listen(PORT, () => {
