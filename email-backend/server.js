@@ -8,7 +8,12 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = ['http://localhost:3000', 'https://accountingsolutionz.org', 'https://accountingsolutionz-email-2e05a1482189.herokuapp.com/'];
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://accountingsolutionz.org',
+  'https://www.accountingsolutionz.org',
+  'https://accountingsolutionz-email-2e05a1482189.herokuapp.com'
+];
 
 app.use(cors({
   origin: function (origin, callback) {
