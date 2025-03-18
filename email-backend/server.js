@@ -12,7 +12,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://accountingsolutionz.org',
   'https://www.accountingsolutionz.org',
-  'https://accountingsolutionz-email-2e05a1482189.herokuapp.com'
+  'https://accountingsolutionz-email.herokuapp.com'
 ];
 
 app.use(cors({
@@ -30,12 +30,16 @@ app.use(cors({
 
 app.use(express.json());
 
-app.options('*', (req, res) => {
+app.options('/send-email', (req, res) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin || '*');
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.header("Access-Control-Allow-Credentials", "true");
   return res.sendStatus(204);
+});
+
+app.get('/send-email', (req, res) => {
+  res.status(200).send('This endpoint is for sending emails via POST requests.');
 });
 
 const transporter = nodemailer.createTransport({
