@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import SectionTitle from './SectionTitle';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const accountingServices = [
   { keyword: 'Financial Reporting', description: 'Generate detailed reports, including balance sheets, profit & loss statements, and cash flow insights.' },
@@ -24,10 +27,90 @@ const payrollServices = [
   { keyword: 'Payroll Tax Returns', description: 'Manage and file Federal and State Payroll Tax Returns quarterly/annually.' },
 ];
 
+const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'OffWhite', borderRadius: '50%', right: '-10px', zIndex: 1 }}
+      onClick={onClick}
+    />
+  );
+};
+
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'OffWhite', borderRadius: '50%', left: '-10px', zIndex: 1 }}
+      onClick={onClick}
+    />
+  );
+};
+
+const NextArrowDesktop = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: '#OffWhite', borderRadius: '50%', right: '-25px', zIndex: 1 }}
+      onClick={onClick}
+    />
+  );
+};
+
+const PrevArrowDesktop = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: '#OffWhite', borderRadius: '50%', left: '-25px', zIndex: 1 }}
+      onClick={onClick}
+    />
+  );
+};
+
 function Services() {
   useEffect(() => {
     console.log("Services component mounted!");
   }, []);
+
+  const mobileSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
+
+  const desktopSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <NextArrowDesktop />,
+    prevArrow: <PrevArrowDesktop />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div id="services" className="mt-20 pt-16 sm:pt-24 md:pt-28">
@@ -37,42 +120,84 @@ function Services() {
         At Accounting Solutions, we provide comprehensive accounting and payroll solutions designed to streamline your business operations and ensure compliance with financial regulations.
       </p>
 
-      <div className="mt-12 flex flex-col md:flex-row md:flex-wrap justify-center items-start gap-12">
-        {/* Accounting Services Section */}
-        <div className="w-full md:w-1/2 lg:w-1/3">
+      <div className="mt-12">
+        <div className="mb-20">
           <h3 className="text-3xl sm:text-4xl font-black mb-6 text-center text-darkGreenDarker">
             Accounting Services
           </h3>
-          <div className="grid grid-cols-1 gap-6">
-            {accountingServices.map((service, index) => (
-              <div key={index} className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[100px] shadow-lg hover:shadow-2xl transition-shadow">
-                <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
-                  {service.keyword}
-                </span>
-                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
-                  {service.description}
-                </div>
-              </div>
-            ))}
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="block md:hidden">
+              <Slider {...mobileSettings}>
+                {accountingServices.map((service, index) => (
+                  <div key={index} className="px-2">
+                    <div className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-shadow">
+                      <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
+                        {service.keyword}
+                      </span>
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                        {service.description}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+            <div className="hidden md:block">
+              <Slider {...desktopSettings}>
+                {accountingServices.map((service, index) => (
+                  <div key={index} className="px-2">
+                    <div className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-shadow">
+                      <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
+                        {service.keyword}
+                      </span>
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                        {service.description}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
 
-        {/* Payroll Services Section */}
-        <div className="w-full md:w-1/2 lg:w-1/3">
+        <div>
           <h3 className="text-3xl sm:text-4xl font-black mb-6 text-center text-darkGreenDarker">
             Payroll Services
           </h3>
-          <div className="grid grid-cols-1 gap-6">
-            {payrollServices.map((service, index) => (
-              <div key={index} className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[100px] shadow-lg hover:shadow-2xl transition-shadow">
-                <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
-                  {service.keyword}
-                </span>
-                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
-                  {service.description}
-                </div>
-              </div>
-            ))}
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="block md:hidden">
+              <Slider {...mobileSettings}>
+                {payrollServices.map((service, index) => (
+                  <div key={index} className="px-2">
+                    <div className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-shadow">
+                      <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
+                        {service.keyword}
+                      </span>
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                        {service.description}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+            <div className="hidden md:block">
+              <Slider {...desktopSettings}>
+                {payrollServices.map((service, index) => (
+                  <div key={index} className="px-2">
+                    <div className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-shadow">
+                      <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
+                        {service.keyword}
+                      </span>
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                        {service.description}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
       </div>
