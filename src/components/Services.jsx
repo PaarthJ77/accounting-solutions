@@ -20,10 +20,9 @@ const accountingServices = [
 const payrollServices = [
   { keyword: 'Salary and Wages', description: 'Automate calculations for hourly, salaried, and commission-based pay.' },
   { keyword: 'Direct Deposit', description: "Ensure timely payments directly to employees' bank accounts." },
-  { keyword: 'Tax Withholding', description: 'Calculate and deduct payroll taxes, including federal, state, and local taxes.' },
+  { keyword: 'Tax Withholding', description: 'Calculate and deduct payroll taxes, including federal and state taxes.' },
   { keyword: 'Employee Self-Service Portal', description: 'Access to an online portal where employees can view/download pay stubs, W-2s, and other documents anytime.' },
-  { keyword: 'Additional Deductions', description: 'Calculating, processing and paying CalSavers Deductions.' },
-  { keyword: 'Pay Stub Generation', description: 'Provide employees with detailed, downloadable paystubs.' },
+  { keyword: 'Additional Deductions', description: 'Calculating, processing and paying CalSavers and other deductions.' },
   { keyword: 'Payroll Tax Efiling', description: 'Generating and efiling Payroll Taxes per Payroll.' },
   { keyword: 'Payroll Tax Returns', description: 'Manage and file Federal and State Payroll Tax Returns quarterly/annually.' },
 ];
