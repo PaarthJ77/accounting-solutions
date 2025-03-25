@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const accountingServices = [
   { keyword: 'Financial Reporting', description: 'Generate detailed reports, including balance sheets, profit & loss statements, and cash flow insights.' },
-  { keyword: 'Bank Reconciliation', description: 'Automating, implementing and streamlining your financial records with bank statements for accurate bookkeeping.' },
+  { keyword: 'Bank Reconciliation', description: 'Implementing and streamlining your financial records with bank statements for accurate bookkeeping.' },
   { keyword: 'General Ledger Account Reconciliation', description: 'Transaction entry/classification.' },
   { keyword: 'Income and Expense Tracking', description: 'Track and categorize transactions in real time.' },
   { keyword: 'Invoicing and Billing', description: 'Create, send, and manage professional invoices to get paid faster.' },
@@ -14,6 +14,7 @@ const accountingServices = [
   { keyword: 'Tax Preparation', description: 'Simplify tax season with organized records and automated tax calculations.' },
   { keyword: 'Sales Tax Returns', description: 'Making Monthly Sales Tax Pre-payments and Filing Quarterly returns.' },
   { keyword: 'Property Tax Returns', description: 'Filing and payments of Unsecured Property Tax annually.' },
+  { keyword: 'Catch-Up Accounting', description: 'We strive to help you get caught up & stay up to date on your records.' },
 ];
 
 const payrollServices = [
@@ -130,11 +131,11 @@ function Services() {
               <Slider {...mobileSettings}>
                 {accountingServices.map((service, index) => (
                   <div key={index} className="px-2">
-                    <div className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-shadow">
+                    <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-all duration-300">
                       <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
                         {service.keyword}
                       </span>
-                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
                         {service.description}
                       </div>
                     </div>
@@ -146,11 +147,11 @@ function Services() {
               <Slider {...desktopSettings}>
                 {accountingServices.map((service, index) => (
                   <div key={index} className="px-2">
-                    <div className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-shadow">
+                    <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-all duration-300">
                       <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
                         {service.keyword}
                       </span>
-                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
                         {service.description}
                       </div>
                     </div>
@@ -170,11 +171,11 @@ function Services() {
               <Slider {...mobileSettings}>
                 {payrollServices.map((service, index) => (
                   <div key={index} className="px-2">
-                    <div className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-shadow">
+                    <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-all duration-300">
                       <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
                         {service.keyword}
                       </span>
-                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
                         {service.description}
                       </div>
                     </div>
@@ -186,11 +187,11 @@ function Services() {
               <Slider {...desktopSettings}>
                 {payrollServices.map((service, index) => (
                   <div key={index} className="px-2">
-                    <div className="relative group bg-OffWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-shadow">
+                    <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-all duration-300">
                       <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
                         {service.keyword}
                       </span>
-                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-OffWhite text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
                         {service.description}
                       </div>
                     </div>

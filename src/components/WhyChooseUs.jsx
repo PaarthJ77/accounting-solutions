@@ -32,12 +32,11 @@ const rightColumn = [
 const bigRectangle = {
   keyword: 'Why Choose Accounting Solutions for Payroll Processing?',
   description: (
-    <ul className="list-none text-lg font-black">
+    <ul className="list-none md:text-lg text-base font-black">
       <li><strong>Accuracy Guaranteed:</strong> Automated calculations reduce errors.</li>
       <li><strong>Save Time:</strong> Focus on your business, not payroll.</li>
       <li><strong>Scalable for Growth:</strong> Our platform grows with you.</li>
       <li><strong>Secure and Confidential:</strong> Advanced encryption protects your data.</li>
-      <li><strong>Catchup Accounting:</strong> Organize and update financial records for compliance.</li>
     </ul>
   ),
 };
@@ -45,20 +44,22 @@ const bigRectangle = {
 function WhyChooseUs() {
   return (
     <AnimatedSection id="why-choose-us">
-      <h2 className="text-6xl font-black mb-12 text-center text-darkGreenDarker">
+      <h2 className="text-4xl md:text-6xl font-black mb-12 text-center text-darkGreenDarker">
         Why Choose Us?
       </h2>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        {/* Single Column Layout on Small Screens */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
           {/* Left Column */}
           {leftColumn.map((item, idx) => (
-            <div key={idx} className="relative group bg-offWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[12rem] w-full md:w-[30rem] cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
-              <span className="text-center font-black px-4 text-2xl transition-opacity duration-300 group-hover:opacity-0">
+            <div
+              key={idx}
+              className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[12rem] w-full md:w-[30rem] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+            >
+              <span className="text-center font-black px-4 text-xl md:text-2xl transition-opacity duration-300 group-hover:opacity-0">
                 {item.keyword}
               </span>
-              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-darkGreenDarker p-6 font-black bg-offWhite shadow-lg hover:shadow-2xl">
+              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-darkGreenDarker p-4 md:p-6 text-sm md:text-base font-black bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] shadow-lg hover:shadow-2xl">
                 {item.description}
               </div>
             </div>
@@ -66,11 +67,14 @@ function WhyChooseUs() {
 
           {/* Right Column */}
           {rightColumn.map((item, idx) => (
-            <div key={idx} className="relative group bg-offWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[12rem] w-full md:w-[30rem] cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
-              <span className="text-center font-black px-4 text-2xl transition-opacity duration-300 group-hover:opacity-0">
+            <div
+              key={idx}
+              className="relative group bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[12rem] w-full md:w-[30rem] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+            >
+              <span className="text-center font-black px-4 text-xl md:text-2xl transition-opacity duration-300 group-hover:opacity-0">
                 {item.keyword}
               </span>
-              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-darkGreenDarker p-6 font-black bg-offWhite shadow-lg hover:shadow-2xl">
+              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-darkGreenDarker p-4 md:p-6 text-sm md:text-base font-black bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] shadow-lg hover:shadow-2xl">
                 {item.description}
               </div>
             </div>
@@ -78,14 +82,16 @@ function WhyChooseUs() {
         </div>
       </div>
 
-      {/* Big Rectangle at the Bottom */}
+      {/* Big Rectangle */}
       <div className="mt-16 flex justify-center">
-        <div className="relative group bg-offWhite text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[14rem] w-full md:w-[80rem] cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
-          <span className="text-center font-black px-6 text-3xl transition-opacity duration-300 group-hover:opacity-0">
+        <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[14rem] w-full md:w-[80rem] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+          <span className="text-center font-black px-6 text-xl md:text-3xl transition-opacity duration-300 group-hover:opacity-0">
             {bigRectangle.keyword}
           </span>
-          <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-lg bg-offWhite text-darkGreenDarker p-8 font-black shadow-lg hover:shadow-2xl">
-            {bigRectangle.description}
+          <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-darkGreenDarker p-4 md:p-8 font-black bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] shadow-lg hover:shadow-2xl">
+            <div className="text-sm md:text-lg">
+              {bigRectangle.description}
+            </div>
           </div>
         </div>
       </div>

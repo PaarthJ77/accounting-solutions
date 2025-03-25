@@ -35,27 +35,23 @@ function Header() {
 
   return (
     <>
-      {/* Mobile Header */}
       <header className="md:hidden w-full fixed top-0 left-0 right-0 z-50 bg-OffWhite text-darkGreenDarker shadow-md flex items-center justify-between px-4 py-3">
         <div className="flex items-center space-x-4">
-          {/* Hamburger Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-darkGreenDarker rounded-md focus:outline-none"
+            className="p-2 text-darkGreenDarker rounded-md focus:outline-none hover:bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] transition-all duration-300"
           >
             <Bars3Icon className="h-6 w-6" />
           </button>
 
-          {/* Contact Button - Updated with Raleway Medium */}
           <button
             onClick={() => handleScrollTo('contact')}
-            className="bg-transparent text-darkGreenDarker hover:bg-darkGreenDarker hover:text-OffWhite font-raleway font-medium py-1 px-3 text-xs rounded border-2 border-darkGreenDarker uppercase whitespace-nowrap"
+            className="bg-transparent text-darkGreenDarker hover:bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] font-raleway font-medium py-1 px-3 text-xs rounded border-2 border-darkGreenDarker uppercase whitespace-nowrap transition-all duration-300"
           >
             Contact Us
           </button>
         </div>
 
-        {/* Company Name and Logo - Updated with Lobster */}
         <div className="flex items-center">
           <motion.h1
             className="text-sm font-lobster mr-2 whitespace-nowrap"
@@ -80,9 +76,8 @@ function Header() {
           />
         </div>
 
-        {/* Mobile Menu Overlay */}
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-40 mt-12 bg-OffWhite overflow-y-auto">
+          <div className="fixed inset-0 z-40 mt-12 bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] overflow-y-auto">
             <div className="px-4 py-2 space-y-4">
               {["services", "why-choose-us", "our-clients", "contact"].map((section) => (
                 <button
@@ -98,18 +93,16 @@ function Header() {
         )}
       </header>
 
-      {/* Desktop Header */}
       <header className="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-OffWhite text-darkGreenDarker shadow-md items-center px-6 py-3 lg:px-8 lg:py-4 xl:px-10 xl:py-5">
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button
-              className="inline-flex items-center p-3 text-lg lg:text-xl font-bold text-darkGreenDarker hover:bg-darkGreenDarker hover:text-OffWhite focus:outline-none rounded-md"
-              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center p-3 text-lg lg:text-xl font-bold text-darkGreenDarker hover:bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] focus:outline-none rounded-md transition-all duration-300"
             >
               <Bars3Icon className="h-7 w-7 lg:h-8 lg:w-8 xl:h-10 xl:w-10" />
             </Menu.Button>
           </div>
-          <Menu.Items className="absolute left-0 mt-3 w-56 lg:w-64 xl:w-72 rounded-lg shadow-lg bg-OffWhite ring-1 ring-gray-300 focus:outline-none z-50">
+          <Menu.Items className="absolute left-0 mt-3 w-56 lg:w-64 xl:w-72 rounded-lg shadow-lg bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] ring-1 ring-gray-300 focus:outline-none z-50">
             <div className="py-3 space-y-3">
               {["services", "why-choose-us", "our-clients", "contact"].map((section, i) => (
                 <Menu.Item key={i}>
@@ -131,15 +124,13 @@ function Header() {
             </div>
           </Menu.Items>
         </Menu>
-        {/* Contact Button - Updated with Raleway Medium */}
         <button
           onClick={() => handleScrollTo('contact')}
-          className="ml-3 bg-transparent hover:bg-darkGreenDarker text-darkGreenDarker hover:text-OffWhite font-raleway font-medium py-2 px-5 text-lg rounded border-2 border-darkGreenDarker focus:outline-none uppercase transition-colors duration-200"
+          className="ml-3 bg-transparent hover:bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker hover:text-darkGreenDarker font-raleway font-medium py-2 px-5 text-lg rounded border-2 border-darkGreenDarker focus:outline-none uppercase transition-all duration-300"
         >
           Contact Us
         </button>
         <div className="flex-1" />
-        {/* Company Name - Updated with Lobster */}
         <motion.h1
           className="text-xl font-lobster whitespace-nowrap mr-4"
           variants={containerVariants}
