@@ -19,7 +19,7 @@ const clients = [
   { name: 'Chevron', icon: gasIcon2 },
   { name: 'Plant Power', icon: plantIcon },
   { name: 'Postal Annex', icon: mailIcon },
-  { name: 'Etech Pest Solutions', icon: bugSprayIcon },
+  { name: 'ETech Pest Solutions', icon: bugSprayIcon },
 ];
 
 const OurClients = () => {
