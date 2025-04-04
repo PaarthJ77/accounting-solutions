@@ -32,7 +32,7 @@ const NextArrow = (props) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'OffWhite', borderRadius: '50%', right: '-10px', zIndex: 1 }}
+      style={{ ...style, display: 'block', background: '#ACBFA8', borderRadius: '50%', right: '-10px', zIndex: 1 }}
       onClick={onClick}
     />
   );
@@ -43,7 +43,7 @@ const PrevArrow = (props) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'OffWhite', borderRadius: '50%', left: '-10px', zIndex: 1 }}
+      style={{ ...style, display: 'block', background: '#ACBFA8', borderRadius: '50%', left: '-10px', zIndex: 1 }}
       onClick={onClick}
     />
   );
@@ -54,7 +54,7 @@ const NextArrowDesktop = (props) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: '#OffWhite', borderRadius: '50%', right: '-25px', zIndex: 1 }}
+      style={{ ...style, display: 'block', background: '#ACBFA8', borderRadius: '50%', right: '-25px', zIndex: 1 }}
       onClick={onClick}
     />
   );
@@ -65,7 +65,7 @@ const PrevArrowDesktop = (props) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: '#OffWhite', borderRadius: '50%', left: '-25px', zIndex: 1 }}
+      style={{ ...style, display: 'block', background: '#ACBFA8', borderRadius: '50%', left: '-25px', zIndex: 1 }}
       onClick={onClick}
     />
   );
