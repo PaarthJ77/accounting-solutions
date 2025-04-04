@@ -87,7 +87,7 @@ function Header() {
                 z-50
               "
             >
-              <p className="text-sm font-bold">Email: accountingsolutionz@yahoo.com</p>
+              <p className="text-sm font-bold">Email: komal@accountingsolutionz.org</p>
               <p className="text-sm font-bold">Phone: (909)-559-9247</p>
             </div>
           </div>
@@ -219,7 +219,7 @@ function Header() {
             "
           >
             <p className="text-xl font-bold mb-2">
-              Email: accountingsolutionz@yahoo.com
+              Email: komal@accountingsolutionz.org
             </p>
             <p className="text-xl font-bold">
               Phone: (909)-559-9247

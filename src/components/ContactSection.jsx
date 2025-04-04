@@ -16,7 +16,7 @@ function ContactSection() {
         <br />
         Contact us at:
         <br />
-        <strong> email: accountingsolutionz@yahoo.com </strong>
+        <strong> email: komal@accountingsolutionz.org </strong>
         <br />
         <strong> phone: (909)-559-9247 </strong>
         <br />
