@@ -3,6 +3,7 @@ import SectionTitle from './SectionTitle';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import graphImage from '../assets/AS-3D-graph.png';
 
 const accountingServices = [
   { keyword: 'Financial Reporting', description: 'Generate detailed reports, including balance sheets, profit & loss statements, and cash flow insights.' },
@@ -116,48 +117,54 @@ function Services() {
     <div id="services" className="mt-20 pt-16 sm:pt-24 md:pt-28">
       <SectionTitle title="Accounting and Payroll Services" align="center" />
 
-      <p className="mt-6 text-lg sm:text-xl md:text-2xl font-black text-center max-w-4xl mx-auto">
+      <p className="mt-6 text-lg sm:text-xl md:text-2xl font-black text-center max-w-4xl mx-auto px-4">
         At Accounting Solutions, we provide comprehensive accounting and payroll solutions designed to streamline your business operations and ensure compliance with financial regulations.
       </p>
 
-      <div className="mt-12">
+      <div className="flex justify-center mt-8 mb-12 px-4">
+        <img
+          src={graphImage}
+          alt="3D financial graph"
+          className="w-full max-w-3xl mx-auto"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4">
         <div className="mb-20">
           <h3 className="text-3xl sm:text-4xl font-black mb-6 text-center text-darkGreenDarker">
             Accounting Services
           </h3>
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="block md:hidden">
-              <Slider {...mobileSettings}>
-                {accountingServices.map((service, index) => (
-                  <div key={index} className="px-2">
-                    <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-all duration-300">
-                      <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
-                        {service.keyword}
-                      </span>
-                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
-                        {service.description}
-                      </div>
+          <div className="block md:hidden">
+            <Slider {...mobileSettings}>
+              {accountingServices.map((service, index) => (
+                <div key={index} className="px-2">
+                  <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
+                      {service.keyword}
+                    </span>
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                      {service.description}
                     </div>
                   </div>
-                ))}
-              </Slider>
-            </div>
-            <div className="hidden md:block">
-              <Slider {...desktopSettings}>
-                {accountingServices.map((service, index) => (
-                  <div key={index} className="px-2">
-                    <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-all duration-300">
-                      <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
-                        {service.keyword}
-                      </span>
-                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
-                        {service.description}
-                      </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+          <div className="hidden md:block">
+            <Slider {...desktopSettings}>
+              {accountingServices.map((service, index) => (
+                <div key={index} className="px-2">
+                  <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
+                      {service.keyword}
+                    </span>
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                      {service.description}
                     </div>
                   </div>
-                ))}
-              </Slider>
-            </div>
+                </div>
+              ))}
+            </Slider>
           </div>
         </div>
 
@@ -165,39 +172,37 @@ function Services() {
           <h3 className="text-3xl sm:text-4xl font-black mb-6 text-center text-darkGreenDarker">
             Payroll Services
           </h3>
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="block md:hidden">
-              <Slider {...mobileSettings}>
-                {payrollServices.map((service, index) => (
-                  <div key={index} className="px-2">
-                    <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-all duration-300">
-                      <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
-                        {service.keyword}
-                      </span>
-                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
-                        {service.description}
-                      </div>
+          <div className="block md:hidden">
+            <Slider {...mobileSettings}>
+              {payrollServices.map((service, index) => (
+                <div key={index} className="px-2">
+                  <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] w-[90%] mx-auto shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
+                      {service.keyword}
+                    </span>
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                      {service.description}
                     </div>
                   </div>
-                ))}
-              </Slider>
-            </div>
-            <div className="hidden md:block">
-              <Slider {...desktopSettings}>
-                {payrollServices.map((service, index) => (
-                  <div key={index} className="px-2">
-                    <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-all duration-300">
-                      <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
-                        {service.keyword}
-                      </span>
-                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
-                        {service.description}
-                      </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+          <div className="hidden md:block">
+            <Slider {...desktopSettings}>
+              {payrollServices.map((service, index) => (
+                <div key={index} className="px-2">
+                  <div className="relative group bg-gradient-to-br from-[#ACBFA8] to-[#C7D9BC] text-darkGreenDarker border border-gray-300 rounded-lg flex items-center justify-center min-h-[150px] shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <span className="text-center font-black px-4 text-lg sm:text-xl transition-opacity duration-300 group-hover:opacity-0">
+                      {service.keyword}
+                    </span>
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-base sm:text-lg bg-gradient-to-br from-[#C7D9BC] to-[#ACBFA8] text-darkGreenDarker p-6 font-black shadow-lg hover:shadow-2xl">
+                      {service.description}
                     </div>
                   </div>
-                ))}
-              </Slider>
-            </div>
+                </div>
+              ))}
+            </Slider>
           </div>
         </div>
       </div>
