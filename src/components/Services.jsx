@@ -125,7 +125,7 @@ function Services() {
         <img
           src={graphImage}
           alt="3D financial graph"
-          className="w-full max-w-3xl mx-auto"
+          className="w-full max-w-2xl mx-auto md:max-w-xl"
         />
       </div>
 

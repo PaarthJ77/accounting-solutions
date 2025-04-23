@@ -108,7 +108,7 @@ function Header() {
             onClick={() => handleScrollTo('top')}
           />
           <motion.h1
-            className="text-2xl font-lobster whitespace-nowrap"
+            className="text-3xl font-lobster whitespace-nowrap"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -121,15 +121,17 @@ function Header() {
           </motion.h1>
         </div>
 
-        <div className="flex space-x-6 lg:space-x-8 xl:space-x-10">
-          {['services', 'importance-of-accounting', 'why-choose-us', 'our-clients'].map(
+        <div className="flex space-x-4 lg:space-x-6 xl:space-x-8">
+          {['services', 'why-choose-us', 'importance-of-accounting', 'our-clients'].map(
             (section) => (
               <button
                 key={section}
                 onClick={() => handleScrollTo(section)}
-                className="text-sm font-extrabold hover:text-green-800 transition-colors duration-200"
+                className="text-sm font-extrabold hover:bg-gradient-to-r hover:from-[#ACBFA8] hover:to-[#C7D9BC] hover:text-OffWhite px-3 py-2 rounded transition-colors duration-200"
               >
-                {section === 'why-choose-us' ? 'Why Choose Us?' : section.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
+                {section === 'why-choose-us' ? 'Why Choose Us?' :
+                section === 'importance-of-accounting' ? 'Importance of Accounting' :
+                section.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
               </button>
             )
           )}
